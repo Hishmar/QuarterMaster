@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PerishableController {
+public class ItemController {
 
-	private final PerishableRepository repo;
+	private final ItemRepository repo;
 	
-	PerishableController(PerishableRepository repo){
+	ItemController(ItemRepository repo){
 		this.repo = repo;
 	}
 	
 	@GetMapping
-	List<Perishable> getAll(){
-		return repo.getPerishables();
+	List<Item> getAll(){
+		return repo.getItems();
 	}
 	
 	@PostMapping
-	Perishable add(@RequestBody Perishable perishable) {
-		return repo.save(perishable);
+	Item add(@RequestBody Item item) {
+		return repo.save(item);
 	}
 	
 	@DeleteMapping
