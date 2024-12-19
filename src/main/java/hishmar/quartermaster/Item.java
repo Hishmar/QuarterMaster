@@ -6,8 +6,9 @@ import lombok.Data;
 
 @Data
 public class Item {
-	private int id;
+	private Long itemId;
 	private LocalDate expiryStart;
 	private LocalDate expectedExpiry;
 	private float amount;
+	private Category category;
 }

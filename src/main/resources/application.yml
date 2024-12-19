@@ -1,0 +1,10 @@
+spring:
+ application:
+  name: 'QuarterMaster'
+ datasource:
+  url: 'jdbc:postgresql:quartermaster-test.cdkkqmkuatns.us-east-2.rds.amazonaws.com'
+ cloud:
+  aws:
+   dynamodb:
+    table-prefix: 'quartermaster_'
+  

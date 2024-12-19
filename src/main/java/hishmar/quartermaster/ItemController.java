@@ -18,17 +18,17 @@ public class ItemController {
 		this.repo = repo;
 	}
 	
-	@GetMapping
+//	@GetMapping
 	List<Item> getAll(){
 		return repo.getItems();
 	}
 	
-	@PostMapping
+//	@PostMapping
 	Item add(@RequestBody Item item) {
 		return repo.save(item);
 	}
 	
-	@DeleteMapping
+//	@DeleteMapping
 	void delete(@PathVariable String name) {
 		repo.delete();
 	}
