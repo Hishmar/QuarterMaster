@@ -49,6 +49,4 @@ public class CategoryRepository {
 	public void delete(Category category) {
 		dynamoDbTemplate.delete(category);
 	}
-	
-	
 }

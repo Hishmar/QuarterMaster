@@ -6,30 +6,41 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ItemController {
 
-	private final ItemRepository repo;
+	private final ItemService service;
 	
-	ItemController(ItemRepository repo){
-		this.repo = repo;
+	ItemController(ItemService service){
+		this.service = service;
 	}
 	
-//	@GetMapping
+	@GetMapping("/items")
 	List<Item> getAll(){
-		return repo.getItems();
+		return service.getAll();
+	}
+	@GetMapping("/items/{id}")
+	Item get(@PathVariable Long id) {
+		return service.getItem(id);
 	}
 	
-//	@PostMapping
-	Item add(@RequestBody Item item) {
-		return repo.save(item);
+	@PostMapping("/items")
+	void add(@RequestBody Item item) {
+		service.save(item);
 	}
 	
-//	@DeleteMapping
-	void delete(@PathVariable String name) {
-		repo.delete();
+	@PutMapping("/items/{id}")
+	Item update(@RequestBody Item item, @PathVariable Long id) {
+		item.setItemId(id);
+		return service.update(item);
+	}
+	
+	@DeleteMapping("/items/{id}")
+	void delete(@PathVariable Long id) {
+		service.delete(id);
 	}
 }
