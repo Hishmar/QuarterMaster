@@ -2,6 +2,9 @@ package hishmar.quartermaster;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ItemService {
     	
 	private final ItemRepository repo;
@@ -10,12 +13,12 @@ public class ItemService {
 		this.repo = repo;
 	}
 
-	public List<Item> getItemsInCategory() {
-		return repo.getItemsInCategory();
+	public List<Item> getItemsInCategory(String category) {
+		return repo.getItemsInCategory(category);
 	}
 
-	public Item save(Item category) {
-		return repo.save(category);
+	public Item save(Item item) {
+		return repo.save(item);
 	}
 
 	public void delete(Long id) {
@@ -35,5 +38,7 @@ public class ItemService {
 	public List<Item> getAll(){
 		return repo.getAll();
 	}
+
+
 
 }
