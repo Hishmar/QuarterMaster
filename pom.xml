@@ -15,7 +15,7 @@
 	<name>QuarterMaster</name>
 	<description>Food Tracking API</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencyManagement>
     <dependencies>

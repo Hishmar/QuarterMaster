@@ -23,7 +23,7 @@ public class Item {
 	@Setter
 	private float amount;
 	@Setter
-	private Category category;
+	private String category;
 
 	@DynamoDbPartitionKey
 	public void setItemId(Long itemId) {
