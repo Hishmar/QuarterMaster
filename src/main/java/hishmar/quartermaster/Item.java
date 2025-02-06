@@ -15,7 +15,7 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbParti
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item {
-	private Long itemId;
+	private String itemId;
 	@Setter
 	private LocalDate expiryStart;
 	@Setter
@@ -26,11 +26,11 @@ public class Item {
 	private String category;
 
 	@DynamoDbPartitionKey
-	public void setItemId(Long itemId) {
+	public void setItemId(String itemId) {
 		this.itemId = itemId;
 	}
 
-	public Item(Long itemId){
+	public Item(String itemId){
 		this.itemId= itemId;
 	}
 }

@@ -1,6 +1,7 @@
 package hishmar.quartermaster;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -18,20 +19,26 @@ public class ItemService {
 	}
 
 	public Item save(Item item) {
+		item.setItemId(UUID.randomUUID().toString());
 		return repo.save(item);
 	}
 
-	public void delete(Long id) {
+	//TODO: batch save could be useful in the future
+	// public List<Item> batchSave(List<Item> items){
+	// 	return items;
+	// }
+
+	public void delete(String id) {
 		Item deleted = new Item(id);
 		repo.delete(deleted);
-		
 	}
 
-	public Item update(Item category) {
-		return repo.update(category);
+	public Item update(Item item) {
+		//TODO: should be some kind of exception path specifically here if the category to update is missing a key
+		return repo.update(item);
 	}
 
-	public Item getItem(Long id) {
+	public Item getItem(String id) {
 		return repo.getItem(id);
 	}
 

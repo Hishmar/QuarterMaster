@@ -24,23 +24,23 @@ public class ItemController {
 		return service.getAll();
 	}
 	@GetMapping("/items/{id}")
-	Item get(@PathVariable Long id) {
+	Item get(@PathVariable String id) {
 		return service.getItem(id);
 	}
 	
 	@PostMapping("/items")
-	void add(@RequestBody Item item) {
-		service.save(item);
+	Item add(@RequestBody Item item) {
+		return service.save(item);
 	}
 	
 	@PutMapping("/items/{id}")
-	Item update(@RequestBody Item item, @PathVariable Long id) {
+	Item update(@RequestBody Item item, @PathVariable String id) {
 		item.setItemId(id);
 		return service.update(item);
 	}
 	
 	@DeleteMapping("/items/{id}")
-	void delete(@PathVariable Long id) {
+	void delete(@PathVariable String id) {
 		service.delete(id);
 	}
 }

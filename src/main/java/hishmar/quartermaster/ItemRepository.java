@@ -40,11 +40,10 @@ public class ItemRepository {
 		if(item.getItemId()!=null){
 			return dynamoDbTemplate.update(item);
 		}
-		//TODO: should be some kind of exception path specifically here if the category to update is missing a key
 		else return null;
     }
 
-    public Item getItem(Long id) {
+    public Item getItem(String id) {
 		Key key = Key.builder().partitionValue(id).build();
 		return dynamoDbTemplate.load(key, Item.class);
     }
